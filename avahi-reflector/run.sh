@@ -24,6 +24,7 @@ then
   sed -ir \
     -e 's/^#?allow-interfaces=.*/allow-interfaces='"${ALLOW_INTERFACES}"'/' \
     "$AVAHI_CONFIG_PATH"
+  grep -v '^#' "$AVAHI_CONFIG_PATH"
 fi
 
 exec avahi-daemon
